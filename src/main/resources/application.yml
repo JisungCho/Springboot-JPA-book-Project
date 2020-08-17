@@ -1,0 +1,44 @@
+  #context-path : 내 프로젝트에 들어가는 진입점
+  #http://localhost:8000/blog/http/get
+server:
+  port: 8000
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    
+spring:
+  mvc:
+    view: 
+    #prefix란 @Controller가 리턴을 할 때 앞에 붙여주는 경료명
+    #suffix란 뒤에 붙여주는 경로명
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3305/book?serverTimezone=Asia/Seoul
+    username: jisung	
+    password: 1234
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+    #실행할때 마다 테이블을 생성 
+    #최초만 create를 하고 나중에는 update로 바꿔줘야함
+      ddl-auto: create
+      naming:
+      #테이블을 만들때 변수명 그대로 필드를 만들어줌
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      #false -> jpa가 사용하는 기본 넘버링 전략을 사용하지 않고 
+      use-new-id-generator-mappings: false
+    #sql문을 콘솔창에 보여줌
+    show-sql: true
+    properties:
+      #예쁘게 정렬
+      hibernate.format_sql: true
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
