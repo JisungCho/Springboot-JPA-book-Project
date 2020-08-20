@@ -5,7 +5,7 @@ server:
   servlet:
     encoding:
       charset: UTF-8
-      enabled: true
+      enabled: true 
       force: true
     
 spring:
@@ -27,7 +27,7 @@ spring:
     hibernate:
     #실행할때 마다 테이블을 생성 
     #최초만 create를 하고 나중에는 update로 바꿔줘야함
-      ddl-auto: create
+      ddl-auto: update
       naming:
       #테이블을 만들때 변수명 그대로 필드를 만들어줌
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
